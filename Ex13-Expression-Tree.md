@@ -1,7 +1,7 @@
 # Ex3(C) Expression Tree
 ## DATE:06-09-2025
 ## AIM:
-To write a C function to construct an Expression Tree for the given Postfix Expression and display the output in the format of In-order ,Pre-order and Post-order traversal.
+To write a C function to construct an Expression Tree for the given Postfix Expression and display the output in the format of In-order, Pre-order and Post-order traversal.
 
 ## Algorithm
 1.	Start
@@ -11,47 +11,61 @@ To write a C function to construct an Expression Tree for the given Postfix Expr
 5.	Recursive approach is used for all three traversal methods
 6.	Functions handle each tree node using tree->d, tree->l, tree->r
 7.	End
- 
 
 ## Program:
-```
 /*
-Program to construct an Expression Tree for the given Postfix Expression and display the output in the format of In-order ,Pre-order and Post-order traversal.
+Program to construct an Expression Tree for the given Postfix Expression and display the output in the format of In-order, Pre-order and Post-order traversal.
 Developed by: Dharani dharan K
 RegisterNumber: 212223040036
 */
-/*
-struct n { char d; struct n*l; struct n*r;
+
+/struct n {
+char d;
+struct n l;
+struct n* r;
 };*/
-voidpreOrder(struct n*tree)
+
+void preOrder(struct n* tree)
 {
 if(tree)
 {
-printf("%c",tree->d); preOrder(tree->l); preOrder(tree->r);
-}
-}
-void inOrder(struct n*tree)
-{
-if(tree)
-{
-inOrder(tree->l); printf("%c",tree->d); inOrder(tree->r);
-}
-}
-voidpostOrder(struct n*tree)
- 
-{
-if(tree)
-{
-postOrder(tree->l); postOrder(tree->r); printf("%c",tree->d);
+printf("%c", tree->d);
+preOrder(tree->l);
+preOrder(tree->r);
 }
 }
 
-```
+void inOrder(struct n* tree)
+{
+if(tree)
+{
+inOrder(tree->l);
+printf("%c", tree->d);
+inOrder(tree->r);
+}
+}
+
+void postOrder(struct n* tree)
+{
+if(tree)
+{
+postOrder(tree->l);
+postOrder(tree->r);
+printf("%c", tree->d);
+}
+}
+
+sql
+Copy code
 
 ## Output:
 ![image](https://github.com/user-attachments/assets/6c73ae19-6005-4812-a3ae-0736dd586944)
 
-
-
 ## Result:
-Thus, the C program to display the Expression Tree in the format of In-order ,Pre-order and Post-order traversal.
+Thus, the C program to display the Expression Tree in the format of In-order, Pre-order and Post-order traversal is implemented successfully.
+
+
+
+
+
+
