@@ -12,31 +12,37 @@ To write a C function to perform post order traversal of a binary tree.
 6.	After visiting both children, print the value of the current node.
 7.	End
 
-
 ## Program:
-```
 /*
 Program to perform post order traversal of a binary tree.
 Developed by: Dharani dharan K
 RegisterNumber: 212223040036
-*/
-/*struct node
+/
+/struct node
 {
 int value;
-struct node*left_child, *right_child;
-};*/
-void display_postorder(struct node*root_node){ if(root_node)
+struct node left_child, right_child;
+};/
+void display_postorder(struct node root_node){
+if(root_node)
 {
-display_postorder(root_node->left_child); display_postorder(root_node->right_child); printf("%d\n",root_node->value);
+display_postorder(root_node->left_child);
+display_postorder(root_node->right_child);
+printf("%d\n",root_node->value);
 }
 }
 
-```
+sql
+Copy code
 
 ## Output:
 ![image](https://github.com/user-attachments/assets/323bcf15-2dc0-4dde-b26e-6673bfb1b115)
 
-
-
 ## Result:
-Thus, the function to perform post order traversal of a binary tree is implemented successfully
+Thus, the function to perform post order traversal of a binary tree is implemented successfully.
+
+
+
+
+
+
