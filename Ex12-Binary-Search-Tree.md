@@ -12,48 +12,56 @@ To write a C function to insert the elements in the binary search tree
 6.	If key > node->key, recursively insert the key into the right subtree and update the right child pointer.
 7.	Return the current node after the insertion.
 8.	End
- 
 
 ## Program:
-```
 /*
 Program to insert the elements in the binary search tree
-Developed by:Dharani dharan K
+Developed by: Dharani dharan K
 RegisterNumber: 212223040036
 */
-/*structnode{ int key;
-struct node*left, *right;
-};*/
+/struct node {
+int key;
+struct node left, right;
+};/
+
 struct node* insert(struct node* node, int key)
 {
-if(node==NULL)
+if(node == NULL)
 {
-struct node* node=(struct node*)malloc(sizeof(struct node)); node->key=key;
-node->left=NULL; node->right=NULL; returnnode;
+struct node* new_node = (struct node*)malloc(sizeof(struct node));
+new_node->key = key;
+new_node->left = NULL;
+new_node->right = NULL;
+return new_node;
 }
 else
 {
-struct node* cur; if(key<=node->key)
+struct node* cur;
+if(key <= node->key)
 {
-cur=insert(node->left,key); node->left=cur;
+cur = insert(node->left, key);
+node->left = cur;
 }
- 
 else
 {
-cur=insert(node->right,key); node->right=cur;
+cur = insert(node->right, key);
+node->right = cur;
 }
-returnnode;
+return node;
 }
 }
 
-
-
-```
+sql
+Copy code
 
 ## Output:
-
 ![image](https://github.com/user-attachments/assets/489ce617-5b6a-49b8-bdb4-c40057053d08)
-
 
 ## Result:
 Thus, the C function to insert the elements in the binary search tree is implemented successfully.
+
+
+
+
+
+
