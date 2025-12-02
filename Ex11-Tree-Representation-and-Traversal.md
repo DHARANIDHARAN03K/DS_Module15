@@ -1,48 +1,84 @@
 # Ex3(A) Tree Representation and Traversal
 ## DATE:06-09-2025
 ## AIM:
-To write a C function to perform post order traversal of a binary tree.
+To write a **Java program** to implement a Binary Tree and demonstrate the **Post-order Traversal** technique.
 
-## Algorithm
-1.	Start
-2.	Define a function display_postorder() that takes a pointer to the root node of the tree.
-3.	Check if the current node (root_node) is not null.
-4.	Recursively call display_postorder() for the left child of the current node.
-5.	Recursively call display_postorder() for the right child of the current node.
-6.	After visiting both children, print the value of the current node.
-7.	End
+## Algorithm:
+1.  Start.
+2.  Define a class `Node` to represent the tree structure, containing an integer `data` and pointers to the `left` and `right` children (`Node left, right`).
+3.  Define a class `BinaryTree` to manage the root of the tree and traversal methods.
+4.  Define the **`postOrder(Node node)`** method:
+    a. Check if the current `node` is **not null**.
+    b. Recursively call `postOrder()` for the **left child** (`node.left`).
+    c. Recursively call `postOrder()` for the **right child** (`node.right`).
+    d. **Visit** and print the `data` of the current `node`.
+5.  In the `main` method, create an instance of the `BinaryTree` and build a sample tree structure.
+6.  Call the `postOrder()` method starting from the root to display the traversal sequence.
+7.  End.
+
 
 ## Program:
 /*
 Program to perform post order traversal of a binary tree.
 Developed by: Dharani dharan K
 RegisterNumber: 212223040036
-/
-/struct node
-{
-int value;
-struct node left_child, right_child;
-};/
-void display_postorder(struct node root_node){
-if(root_node)
-{
-display_postorder(root_node->left_child);
-display_postorder(root_node->right_child);
-printf("%d\n",root_node->value);
-}
+*/
+
+class Node {
+    int data;
+    Node left, right;
+
+    public Node(int item) {
+        data = item;
+        left = right = null;
+    }
 }
 
-sql
-Copy code
+public class BinaryTree {
+    Node root;
+
+    public BinaryTree() {
+        root = null;
+    }
+    
+    // Function to perform Post-order Traversal (Left -> Right -> Root)
+    public void postOrder(Node node) {
+        if (node == null)
+            return;
+
+        // 1. Traverse the left subtree
+        postOrder(node.left);
+
+        // 2. Traverse the right subtree
+        postOrder(node.right);
+
+        // 3. Visit the root node
+        System.out.print(node.data + " ");
+    }
+
+    public static void main(String[] args) {
+        BinaryTree tree = new BinaryTree();
+
+        // Building a sample tree:
+        //       1
+        //      / \
+        //     2   3
+        //    / \
+        //   4   5
+        tree.root = new Node(1);
+        tree.root.left = new Node(2);
+        tree.root.right = new Node(3);
+        tree.root.left.left = new Node(4);
+        tree.root.left.right = new Node(5);
+
+        System.out.println("--- Binary Tree Post-order Traversal ---");
+        System.out.print("Post-order Traversal: ");
+        tree.postOrder(tree.root);
+        System.out.println();
+    }
+}
 
 ## Output:
-![image](https://github.com/user-attachments/assets/323bcf15-2dc0-4dde-b26e-6673bfb1b115)
-
+![image](https://github.com/user-attachments/assets/23cf1270-fdba-4c49-ae95-3c2c5f339d3a)
 ## Result:
-Thus, the function to perform post order traversal of a binary tree is implemented successfully.
-
-
-
-
-
-
+Thus, the **Java program** to implement a Binary Tree and perform post-order traversal is implemented successfully.
